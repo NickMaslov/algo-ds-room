@@ -41,13 +41,13 @@ export class LinkedList {
   // Remove a specific node from the list
   delete(value) {
     if (!this.head) return null;
-
     let deletedNode = null;
     // If the head must be deleted
     while (this.head && this.head.value === value) {
       deletedNode = this.head;
       this.head = this.head.next;
     }
+
     // Traversing our list
     let currentNode = this.head;
     if (currentNode !== null) {
@@ -55,9 +55,17 @@ export class LinkedList {
         if (currentNode.next.value === value) {
           deletedNode = currentNode.next;
           currentNode.next = currentNode.next.next;
-          return deletedNode;
+        } else {
+          currentNode = currentNode.next;
         }
       }
+
+      if (this.tail.value === value) {
+        deletedNode = this.tail;
+        this.tail = currentNode;
+      }
+
+      return deletedNode;
     }
   }
 
@@ -100,7 +108,7 @@ export class LinkedList {
   }
 
   // Search for and locate a node in the list
-  find(value = undefined, callback = undefined) {
+  find({ value = undefined, callback = undefined }) {
     if (!this.head) return null;
     let currentNode = this.head;
 
@@ -118,6 +126,35 @@ export class LinkedList {
     }
 
     return null;
+  }
+
+  insert(value, rawIndex) {
+    const index = rawIndex < 0 ? 0 : rawIndex;
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      let count = 1;
+      let currentNode = this.head;
+      const newNode = new LinkedListNode(value);
+      while (currentNode) {
+        if (count === index) break;
+        currentNode = currentNode.next;
+        count += 1;
+      }
+      if (currentNode) {
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+      } else {
+        if (this.tail) {
+          this.tail.next = newNode;
+          this.tail = newNode;
+        } else {
+          this.head = newNode;
+          this.tail = newNode;
+        }
+      }
+    }
+    return this;
   }
 
   // Takes all the nodes in the LinkedList and puts them in an array

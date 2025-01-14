@@ -1,0 +1,17 @@
+{
+  "name": "algo-ds-room",
+  "version": "1.0.0",
+  "description": "This repository is dedicated to learning, implementing, and improving various data structures and algorithms, with both theoretical explanations and practical use cases.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Nick Maslov",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  }
+}

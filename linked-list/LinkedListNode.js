@@ -5,6 +5,6 @@ export class LinkedListNode {
   }
 
   toString(callback) {
-    return callback ? callback(value) : `${this.value}`;
+    return callback ? callback(this.value) : `${this.value}`;
   }
 }
