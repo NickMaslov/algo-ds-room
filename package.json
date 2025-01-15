@@ -4,7 +4,7 @@
   "description": "This repository is dedicated to learning, implementing, and improving various data structures and algorithms, with both theoretical explanations and practical use cases.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "author": "Nick Maslov",
   "license": "ISC",
