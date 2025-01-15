@@ -10,20 +10,20 @@ export class Stack {
   }
 
   pop() {
-    return this.linkedList.deleteHead()?.value;
+    return this.linkedList.deleteHead()?.value || null;
   }
   peek() {
-    if (this.IsEmpty()) return null;
+    if (this.isEmpty()) return null;
 
     return this.linkedList.head.value;
   }
 
-  IsEmpty() {
+  isEmpty() {
     return !this.linkedList.head;
   }
 
   toArray() {
-    return this.linkedList.toArray().map((node) => node.value);
+    return this.linkedList.toArray();
   }
 
   toString(callback) {

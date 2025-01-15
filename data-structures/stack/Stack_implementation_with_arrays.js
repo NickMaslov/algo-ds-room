@@ -1,3 +1,7 @@
+/***Note! .toReversed() used on on methods .toArray() and .toString()
+ * only for test purpuses , because linked list and array implmention of stack
+ *  has a different flow ***/
+
 export class Stack {
   constructor() {
     this.items = []; // Array to store stack elements
@@ -20,7 +24,7 @@ export class Stack {
   // Peek: Return the top element without removing it
   peek() {
     if (this.isEmpty()) {
-      console.log("Stack is empty");
+      //   console.log("Stack is empty");
       return null;
     }
     return this.items[this.items.length - 1];
@@ -36,6 +40,10 @@ export class Stack {
     return this.items.length;
   }
 
+  toArray() {
+    return this.items.toReversed();
+  }
+
   // Print: Display all elements in the stack
   print() {
     console.log(this.items.join(" <- "));
@@ -43,8 +51,11 @@ export class Stack {
 
   toString(callback) {
     return callback
-      ? this.items.map((item) => callback(item)).join(",")
-      : this.items.join(",");
+      ? this.items
+          .toReversed()
+          .map((item) => callback(item))
+          .join(",")
+      : this.items.toReversed().join(",");
   }
 }
 
