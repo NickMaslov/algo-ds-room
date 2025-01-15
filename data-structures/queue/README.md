@@ -51,20 +51,11 @@ A **queue** is a linear data structure that follows the **First In, First Out (F
 
 ## Applications of Queues
 
-- **Scheduling**: Task scheduling in operating systems.
+- **Scheduling**: Task scheduling in operating systems. Messaging applications.
 - **Data Handling**: Managing requests in a server (e.g., HTTP request handling).
 - **Graph Algorithms**: Breadth-First Search (BFS) in graph traversal.
 - **Buffering**: In printers, keyboards, or streaming.
 - **Simulation**: Modeling real-world queues like ticket counters.
-
-Queues are found in different messaging applications where messages are often generated faster
-than they are processed. For example, when you want to parse a lot of web-pages or send a lot of
-emails, you might want to put those web-pages or emails into a queue for further processing and
-process them one by one without worrying that some of the data being lost or messages dropped.
-Queues are also used as a component in many other algorithms. Queues are used in graph or tree
-breadth-first search, for example, when we need to store a list of the nodes that we need to process
-later. Each time we process a node, we add its adjacent nodes or children to the end of the queue.
-Using a queue allows us to process nodes in the order they are visited.
 
 ---
 
@@ -87,6 +78,8 @@ Using a queue allows us to process nodes in the order they are visited.
 
 | Operation   | Array Implementation                | Linked List Implementation |
 | ----------- | ----------------------------------- | -------------------------- |
+| **Access**  | O(n)                                | O(n)                       |
+| **Search**  | O(n)                                | O(n)                       |
 | **Enqueue** | O(1) (amortized for dynamic arrays) | O(1)                       |
 | **Dequeue** | O(n) (requires shifting elements)   | O(1)                       |
 | **Peek**    | O(1)                                | O(1)                       |
