@@ -29,7 +29,7 @@ export class HashTable {
     const bucketLinkedList = this.buckets[keyHash];
 
     const node = bucketLinkedList.find({
-      callback: (nodeValue) => (nodeValue.key = key),
+      callback: (nodeValue) => nodeValue.key === key,
     });
 
     if (!node) {
@@ -63,9 +63,13 @@ export class HashTable {
     if (node) {
       bucketLinkedList.delete(node.value);
 
-      return true;
+      return node.value;
     }
 
-    return false;
+    return null;
+  }
+
+  has(key) {
+    return this.get(key) !== undefined;
   }
 }
